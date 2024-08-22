@@ -1,0 +1,1 @@
+Blog project build for testing by Luon Verak
