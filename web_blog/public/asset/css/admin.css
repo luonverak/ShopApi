@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p {
+    font-size: 18px;
+}
+a{
+    text-decoration: none;
+}
+.admin-page {
+    min-height: 100vh;
+}
+
+/* Make item center  */
+.item-center {
+    display: flex;
+    align-items: center;
+}
+
+.page-logo img {
+    width: 75px;
+    height: 75px;
+}
+.menu-icon img{
+    width: 30px;
+    height: 30px;
+}
