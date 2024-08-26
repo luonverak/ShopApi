@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Controllers\BackendViewsController;
-use App\Http\Controllers\FrontendViewsController;
+use App\Http\Controllers\Blog\Views\BackendViewController;
+use App\Http\Controllers\Blog\Views\FrontendViewController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(["prefix" => "admin"], function () {
-    Route::get("/", [BackendViewsController::class, "index"]);
-    Route::get("/category", [BackendViewsController::class, "category"]);
+    Route::get("/", [BackendViewController::class, "index"]);
+    Route::get("/category", [BackendViewController::class, "category"]);
 });
 Route::group(["prefix" => "/"], function () {
-    Route::get("/", [FrontendViewsController::class, "index"]);
+    Route::get("/", [FrontendViewController::class, "index"]);
 });

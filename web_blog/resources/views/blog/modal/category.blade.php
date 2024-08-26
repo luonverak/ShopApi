@@ -14,8 +14,7 @@
                     <label for="">Logo (Optional)</label>
                     <input type="file" class="d-none" id="logo">
                     <div class="choose-image border rounded" role="button">
-                        <img class="w-100 h-100 rounded object-fit-cover" src="{{ asset('/asset/image/no_image.webp') }}"
-                            alt="">
+                        <img class="w-100 h-100 rounded object-fit-cover" src="{{ emptyImage() }}" alt="">
                     </div>
                 </form>
             </div>
