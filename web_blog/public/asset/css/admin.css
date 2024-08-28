@@ -4,12 +4,31 @@
     box-sizing: border-box;
 }
 
+:root {
+    --main-color: #1362d6;
+    --second-color: rgb(165 167 168);
+}
+
+.bg-main-color {
+    color: var(--main-color);
+}
+
+.bg-second-color {
+    background-color: var(--second-color);
+}
+
+button:hover {
+    background-color: var(--main-color);
+}
+
 p {
     font-size: 18px;
 }
-a{
+
+a {
     text-decoration: none;
 }
+
 .admin-page {
     min-height: 100vh;
 }
@@ -24,11 +43,23 @@ a{
     width: 75px;
     height: 75px;
 }
-.menu-icon img{
+
+.menu-icon img {
     width: 30px;
     height: 30px;
 }
-.choose-image{
+
+.choose-image {
     width: 130px;
     height: 130px;
+}
+
+/* Category  */
+.category {
+    height: 200px;
+}
+
+.category-iamge {
+    width: 100%;
+    height: 70%;
 }

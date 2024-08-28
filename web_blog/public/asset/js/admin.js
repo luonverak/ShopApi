@@ -40,7 +40,15 @@ function addCategory(name, description, file) {
         beforeSend: function () {
 
         },
-        success: function (response) { },
+        success: function (response) { 
+            
+            if(response.status!="success"){
+                // message error
+                return;
+            }
+            $("div.category-modal").modal("hide");
+            
+        },
         error: function (xhr, status, error) {
 
         }

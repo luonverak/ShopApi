@@ -25,7 +25,7 @@ class CategoryController extends Controller
             $fileName = "";
             if ($logo) {
                 $fileName = date('h-m-y-h-i-s') . '-' . $logo->getClientOriginalName();
-                $logo->move("image_upload",$fileName);
+                $logo->move("image_upload", $fileName);
             }
 
             $category = new Category();
@@ -38,6 +38,37 @@ class CategoryController extends Controller
                 "status" => "success",
                 "msg" => "Category save success."
             ]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+    public function getCategory()
+    {
+        try {
+            $category = Category::select([
+                "id",
+                "name",
+                "description",
+                "logo"
+            ])->get();
+
+            if (!$category->count() > 0) {
+                return response()->json([
+                    "status" => "failed",
+                    "msg" => "Category is empty."
+                ]);
+            }
+
+            $category->map(function ($q) {
+                return $q->logo = url("image_upload/$q->logo");
+            });
+
+            return response()->json([
+                "status" => "success",
+                "msg" => "Success",
+                "records" => $category
+            ]);
+            
         } catch (\Throwable $th) {
             throw $th;
         }
