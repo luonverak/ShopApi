@@ -18,6 +18,7 @@ class CategoryController extends Controller
                     "msg" => "Name is required."
                 ]);
             }
+            
             $name = $request->name;
             $description = $request->description;
 
@@ -26,6 +27,7 @@ class CategoryController extends Controller
             if ($logo) {
                 $fileName = date('h-m-y-h-i-s') . '-' . $logo->getClientOriginalName();
                 $logo->move("image_upload", $fileName);
+                $fileName = url("image_upload/$fileName");
             }
 
             $category = new Category();
@@ -60,7 +62,7 @@ class CategoryController extends Controller
             }
 
             $category->map(function ($q) {
-                return $q->logo = url("image_upload/$q->logo");
+                return $q->logo = $q->logo ?: emptyImage();
             });
 
             return response()->json([
@@ -68,7 +70,7 @@ class CategoryController extends Controller
                 "msg" => "Success",
                 "records" => $category
             ]);
-            
+
         } catch (\Throwable $th) {
             throw $th;
         }
