@@ -1,0 +1,5 @@
+in master page
+    @yield('script')
+when extent master page
+    @section('script')
+    @endsection
