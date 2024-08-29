@@ -20,7 +20,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary w-25 accept-save-category">Save</button>
+                <button type="button" id="category-accept" class="btn btn-primary w-25 accept-save-category">Save</button>
             </div>
         </div>
     </div>

@@ -18,7 +18,7 @@ class CategoryController extends Controller
                     "msg" => "Name is required."
                 ]);
             }
-            
+
             $name = $request->name;
             $description = $request->description;
 
@@ -36,9 +36,15 @@ class CategoryController extends Controller
             $category->logo = $fileName;
             $category->save();
 
+            // Remove
+            unset($category->updated_at);
+            unset($category->created_at);
+            $category->logo = $category->logo ?: emptyImage();
+            
             return response()->json([
                 "status" => "success",
-                "msg" => "Category save success."
+                "msg" => "Category save success.",
+                "record" => $category
             ]);
         } catch (\Throwable $th) {
             throw $th;
@@ -70,7 +76,6 @@ class CategoryController extends Controller
                 "msg" => "Success",
                 "records" => $category
             ]);
-
         } catch (\Throwable $th) {
             throw $th;
         }

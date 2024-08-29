@@ -16,11 +16,7 @@
 .bg-second-color {
     background-color: var(--second-color);
 }
-
-button:hover {
-    background-color: var(--main-color);
-}
-
+ 
 p {
     font-size: 18px;
 }
@@ -62,4 +58,9 @@ a {
 .category-iamge {
     width: 100%;
     height: 70%;
+}
+.category-iamge img{
+    width: 120px !important;
+    height: 120px !important;
+    object-fit: cover;
 }
